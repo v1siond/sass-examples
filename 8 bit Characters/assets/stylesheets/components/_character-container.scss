@@ -1,0 +1,13 @@
+.character-container {
+  @include flexbox('h');
+  background-color: map-get($colors, background);
+  background-image: url('https://ci6.googleusercontent.com/proxy/I9_wxwrAhiuQpSmQIfB35bP7cJgiSwDoMBK_c4YT6OqAgUNJC16_aDnSZnh8SdaAl8GkmtJD9ywNLtc-on0P1BRqxtixRPX9IPjpUrtsutnz9zwgZNLcuzb7A8NiuCHCKtCwzAGtqkdqOzV3Od2sevYNA56VZ_Q-M2MenDw=s0-d-e1-ft#https://gallery.mailchimp.com/f124657d471cc3500de9b20fd/images/5a43e19b-4719-4f30-b13b-5e08a6e993b9.png');
+  background-size: 80%;
+  overflow: hidden;
+  position: relative;
+  > .title {
+    color: white;
+    font-family: sans-serif;
+    text-shadow: 0.2rem 0.2rem 0 black;
+  }
+}

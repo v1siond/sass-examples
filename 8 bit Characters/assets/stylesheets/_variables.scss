@@ -1,0 +1,43 @@
+//flex variations
+
+$colors: (
+  'background': #3E4C61,
+  'r': red,
+  'b': black,
+  'm': #C27A2E,
+  'n': #774C2A,
+  'j': #331A13,
+  'f': #1C74BB,
+  'g': #2DB572,
+  'd': #251F21,
+  's': #FDBE9F,
+  'v': #e5b180,
+  'z': #c69869,
+  't': transparent,
+  'w': white,
+  'a': #B27A5D
+);
+
+//Pixel Size
+
+$pixel-size: .645rem !default;
+
+//flex variations
+
+$flex_variations: (
+  "default": true,
+  "center": true,
+  "flex-end": true,
+  "flex-start": true
+);
+
+// Characters
+
+$characters: (
+  'adam',
+  'josh',
+  'franze',
+  'matt',
+  'moises',
+  'alex'
+);

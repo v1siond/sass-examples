@@ -1,0 +1,15 @@
+.pixel-character {
+  animation: fall .5s forwards;
+  animation-delay: 3s;
+  left: $pixel-size;
+  position: absolute;
+  top: -60rem;
+  &:after {
+    content: '';
+    height: $pixel-size;
+    position: absolute;
+    width: $pixel-size;
+  }
+  @include setCharacter($characters, ($adam, $josh, $franze, $matt, $moises, $alex));
+}
+

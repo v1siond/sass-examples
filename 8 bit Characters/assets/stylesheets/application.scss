@@ -1,0 +1,12 @@
+@import 'variables';
+@import "characters/*.*";
+@import 'functions';
+@import 'tools';
+@import 'normalize';
+@import "components/*.*";
+
+body {
+  @include flexbox('t');
+  animation: earthquake .5s forwards;
+  animation-delay: 3.4s;
+}

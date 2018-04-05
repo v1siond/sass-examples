@@ -1,0 +1,89 @@
+// Mixins
+
+@mixin flexbox($position, $variation: 'center') {
+  @if map_has_key($flex_variations, $variation) {
+    display: flex;
+    flex-wrap: wrap;
+    @if $position == 'h' {
+      justify-content: unquote($variation);
+    }
+    @else if $position == 'v' {
+      align-content: unquote($variation);
+      align-items: unquote($variation);
+    }
+    @else if $position == 't' {
+      justify-content: unquote($variation);
+      align-content: unquote($variation);
+      align-items: unquote($variation);
+    }
+  }
+}
+
+
+@mixin setCharacter($names, $characters) {
+  $ping: 1;
+  @each $character in $characters {
+    $draw: nth($characters, $ping);
+    @each $name in $names {
+      @if map_has_key($draw, $name) {
+        $character: map-get($draw, $name);
+        $length: length($character);
+        &.-#{$name} {
+          height: $pixel-size*$length + 2.5rem;
+          width: $pixel-size*$length;
+          &:after {
+            animation: salute-#{$name} 6s 3s infinite alternate;
+            box-shadow: build_character($character, $pixel-size);
+          }
+          > .boots-shadow {
+            top: $pixel-size*$length;
+          }
+        }
+        @at-root .character-container.-#{$name} {
+          height: $pixel-size*$length + 8rem;
+          width: $pixel-size*$length + 3rem;
+        }
+      }
+    }
+    $ping: $ping + 1;
+  }
+}
+
+
+// Animations
+
+@mixin createAnimations($names, $characters) {
+  $ping: 1;
+  @each $character in $characters {
+    $draw: nth($characters, $ping);
+    $name: nth($names, $ping);
+    @if map_has_key($draw, $name) {
+      $name_peace: '' + $name + 'Salute';
+      @keyframes salute-#{$name} {
+        0%, 45% {box-shadow: build_character(map-get($draw, $name), $pixel-size);}
+        50%, 100% { box-shadow: build_character(map-get($draw, unquote($name_peace)), $pixel-size); }
+      }
+    }
+    $ping: $ping + 1;
+  }
+}
+
+
+@include createAnimations($characters, ($adam, $josh, $franze, $matt, $moises, $alex));
+
+@keyframes fall {
+  from {top: -60rem;}
+  to {top: 4rem;}
+}
+
+@keyframes up {
+  from {opacity: 0; top: 80rem;}
+  to {opacity: 1; top: 35%;}
+}
+
+@keyframes earthquake {
+  0% {transform: rotate(0);}
+  15%, 45%, 75% {transform: rotate(2.5deg);}
+  30%, 60%, 90% {transform: rotate(-2.5deg);}
+  100% {transform: rotate(0);}
+}

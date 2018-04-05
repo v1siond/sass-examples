@@ -1,0 +1,22 @@
+.banner-wrapper,
+.buttons-container,
+.main-title {
+  width: 100%;
+}
+
+.banner-wrapper,
+.buttons-container {
+  @include flexbox('t', 'center');
+}
+
+.main-title,
+.default-button {
+  font-family: $default-font;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: $text-shadow;
+}
+
+@include theme(theme-example, $tarawera, $plum, $milano_red);
+@include theme(theme-blue, blue, $tarawera);
+@include font-face($fonts);

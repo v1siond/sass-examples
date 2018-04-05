@@ -1,0 +1,26 @@
+.boots-shadow {
+  height: 5.5%;
+  position: absolute;
+  right: 5%;
+  width: 80%;
+  &:after,
+  &:before {
+    animation: up .5s forwards;
+    animation-delay: 3s;
+    border-radius: 50%;
+    box-shadow: inset 0 -1rem 5rem 2rem rgba(black, .65),  0 -1rem 3rem 1rem rgba(0, 0, 0, 0.65);
+    content: '';
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 60rem;
+    transform: rotateX(80deg);
+    width: 30%;
+  }
+  &:after {
+    right: 7.5%;
+  }
+  &:before {
+    left: 12.5%;
+  }
+}

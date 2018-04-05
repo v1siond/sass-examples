@@ -1,0 +1,19 @@
+@function build_character($character_draw, $size) {
+  $character: '';
+  $rows: length($character_draw);
+
+  @for $row-num from 1 through $rows {
+    $row: nth($character_draw, $row-num);
+
+    @for $col from 1 through length($row) {
+      $color-key: nth($row, $col);
+
+      $character: $character + ($size*$col) + ' ' + ($size*$row-num) + ' ' + map-get($colors, $color-key);
+
+      @if not ($col == length($row) and $row-num == $rows) {
+        $character: $character + ',';
+      }
+    }
+  }
+  @return unquote($character);
+}

@@ -1,0 +1,14 @@
+.default-button {
+  border-radius: .5rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.25rem;
+  margin: .5rem 0;
+  width: 15rem;
+  padding: .5rem;
+  text-align: center;
+  transition: $default-transition;
+  @include media('xs') {
+    margin: 0 .5rem;
+  }
+}

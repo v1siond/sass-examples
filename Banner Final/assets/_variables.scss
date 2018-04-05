@@ -1,0 +1,40 @@
+// -----> colors <-----
+
+$plum: #813772;
+$tarawera: #062F4F;
+$milano_red: #B82601;
+$wild_sand: #F5F5F5;
+
+// -----> Fonts <-----
+
+$fonts: (
+  'gothic',
+  'gothicb',
+  'gothicbi',
+  'gothici'
+);
+
+$default-font: gothic, helvetica, arial, sans-serif;
+$text-shadow: .1rem .1rem 0 black;
+
+// -----> Effects <-----
+$default-transition: all .25s;
+
+// -----> Breakpoints <-----
+
+$breakpoints: (
+  "xs": 30rem,
+  "sm": 35.5rem,
+  "md": 48rem,
+  "lg": 64rem,
+  "xl": 80rem
+);
+
+// -----> Flex Variations <-----
+
+$flex_variations: (
+  "default": true,
+  "center": true,
+  "flex-end": true,
+  "flex-start": true
+);

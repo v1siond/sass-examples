@@ -1,0 +1,67 @@
+@mixin media($breakpoint, $type: min) {
+  @if map_has_key($breakpoints, $breakpoint) {
+    $width: map_get($breakpoints, $breakpoint);
+    @if $type == max {
+      $width: $width - .1rem;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin flexbox($position, $variation: 'default') {
+  @if map_has_key($flex_variations, $variation) {
+    display: flex;
+    flex-wrap: wrap;
+    @if $position == 'h' {
+      justify-content: unquote($variation);
+    }
+    @else if $position == 'v' {
+      align-content: unquote($variation);
+      align-items: unquote($variation);
+    }
+    @else if $position == t {
+      align-content: unquote($variation);
+      align-items: unquote($variation);
+      justify-content: unquote($variation);
+    }
+  }
+}
+
+@mixin theme($name, $color, $header: $color, $danger: $milano_red, $secondary: lighten($color, 15%)) {
+
+  .#{$name} {
+    .banner-wrapper {
+      background-color: $header;
+    }
+    .default-button.-main {
+      background-color: $color;
+      &:hover {
+        background-color: darken($color, 10%);
+      }
+    }
+    .default-button.-danger {
+      background-color: $danger;
+      &:hover {
+        background-color: darken($danger, 10%);
+      }
+    }
+  }
+}
+
+@mixin font-face($fonts, $path: 'fonts/', $weight: 'normal', $style: 'normal') {
+  @each $font in $fonts {
+    @font-face {
+      font-family: quote($font);
+      src: url( $path + $font + '.eot');
+      src: url( $path + $font + '.eot?#iefix')  format('embedded-opentype'),
+           url( $path + $font + '.woff') format('woff'),
+           url( $path + $font + '.ttf')  format('truetype'),
+           url( $path + $font + '.svg##{$font}')  format('svg');
+      font-weight: $weight;
+      font-style: $style;
+    }
+  }
+}
+
